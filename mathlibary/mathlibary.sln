@@ -10,6 +10,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest", "UnitTest\UnitTe
 		{32AB8061-3B8E-44BD-8CCA-EC0BD0F83EBC} = {32AB8061-3B8E-44BD-8CCA-EC0BD0F83EBC}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RaylibTesting", "RaylibTesting\RaylibTesting.vcxproj", "{75A2CDD0-91D3-400F-B423-70EE4253BD15}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -34,6 +36,14 @@ Global
 		{F4B1E540-524E-490E-876E-513741697EEA}.Release|x64.Build.0 = Release|x64
 		{F4B1E540-524E-490E-876E-513741697EEA}.Release|x86.ActiveCfg = Release|Win32
 		{F4B1E540-524E-490E-876E-513741697EEA}.Release|x86.Build.0 = Release|Win32
+		{75A2CDD0-91D3-400F-B423-70EE4253BD15}.Debug|x64.ActiveCfg = Debug|x64
+		{75A2CDD0-91D3-400F-B423-70EE4253BD15}.Debug|x64.Build.0 = Debug|x64
+		{75A2CDD0-91D3-400F-B423-70EE4253BD15}.Debug|x86.ActiveCfg = Debug|Win32
+		{75A2CDD0-91D3-400F-B423-70EE4253BD15}.Debug|x86.Build.0 = Debug|Win32
+		{75A2CDD0-91D3-400F-B423-70EE4253BD15}.Release|x64.ActiveCfg = Release|x64
+		{75A2CDD0-91D3-400F-B423-70EE4253BD15}.Release|x64.Build.0 = Release|x64
+		{75A2CDD0-91D3-400F-B423-70EE4253BD15}.Release|x86.ActiveCfg = Release|Win32
+		{75A2CDD0-91D3-400F-B423-70EE4253BD15}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

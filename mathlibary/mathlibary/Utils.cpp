@@ -1,4 +1,9 @@
 #include"mathutil.h"
+int seed = 542365;
+int sum(int a, int b)
+{
+	return a + b;
+}
 int min(int valA, int valB) {
 
 	return valA < valB ? valA : valB;
@@ -42,7 +47,7 @@ int abs(int val)
 	}
 }
 
-int pow(int base, int power)
+unsigned long long int pow(int base, int power)
 {
 	int start = base;
 	for (int i = 1; i < power; i++) {
@@ -78,4 +83,83 @@ int nextPowerOfTwo(int val)
 float moveTowards(float current, float target, float maxDelta)
 {
 	return 0.0f;
+}
+
+bool assert(const char * testName, bool expression)
+{
+	if (expression == true) {
+		std::cout << "[PASS BOI] " << testName << std::endl;
+		return true;
+	}
+	else if (expression == false) {
+		std::cout << "[FAIL BOI] " << testName << std::endl;
+		return false;
+	}
+}
+
+bool assert(const char * testName, int expected, int actual)
+{
+	if (actual == expected) {
+		std::cout << "[PASS BOI] " << testName << std::endl;
+		return true;
+	}
+	else if (actual == expected) {
+		std::cout << "[FAIL BOI] " << testName << std::endl;
+		return false;
+	}
+}
+
+bool assert(const char * testName, float expected, float actual, float tolerance)
+{
+	if (expected >= (actual - tolerance) && expected <= (actual + tolerance)) {
+		std::cout << "[PASS BOI] " << testName << std::endl;
+		return true;
+	}
+	else{
+		std::cout << "[FAIL BOI] " << testName << std::endl;
+		return false;
+	}
+}
+
+int rand(int min, int max)
+{
+	int rSeed = seed * seed;
+	std::string sSeed = std::to_string(rSeed);
+	std::string nrSeed = "111111";
+
+	for (int i = 1; i < 7; i++) {
+		nrSeed[i] = sSeed[i];
+	}
+	seed = std::stoi(nrSeed);
+	int n = max - min + 1;
+	return seed % n;
+}
+
+float randDecimal(float min, float max)
+{
+	int rSeed = seed * seed;
+	std::string sSeed = std::to_string(rSeed);
+	std::string nrSeed = "000000";
+	for (int i = 1; i < 7; i++) {
+		nrSeed[i] = sSeed[i];
+	}
+	float r = max - min + 1;
+	float m = fmod(seed,r);
+	if (m > max) {
+		return max;
+	}
+	if (m < min) {
+		return min;
+	}
+	return m;
+}
+
+void seedRand(int seedValue)
+{
+	seed = seedValue;
+}
+
+int getRandSeed()
+{
+	return seed;
 }
