@@ -1,0 +1,11 @@
+﻿  Utils.cpp
+c:\users\s189066\downloads\mathlibandunittest-master\mathlibandunittest-master\mathlibary\mathlibary\utils.cpp(16): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+c:\users\s189066\downloads\mathlibandunittest-master\mathlibandunittest-master\mathlibary\mathlibary\utils.cpp(19): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+c:\users\s189066\downloads\mathlibandunittest-master\mathlibandunittest-master\mathlibary\mathlibary\utils.cpp(22): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+c:\users\s189066\downloads\mathlibandunittest-master\mathlibandunittest-master\mathlibary\mathlibary\utils.cpp(176): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  vec2.cpp
+  Generating Code...
+c:\users\s189066\downloads\mathlibandunittest-master\mathlibandunittest-master\mathlibary\mathlibary\utils.cpp(25): warning C4715: 'clamp': not all control paths return a value
+c:\users\s189066\downloads\mathlibandunittest-master\mathlibandunittest-master\mathlibary\mathlibary\utils.cpp(48): warning C4715: 'abs': not all control paths return a value
+c:\users\s189066\downloads\mathlibandunittest-master\mathlibandunittest-master\mathlibary\mathlibary\utils.cpp(98): warning C4715: 'assert': not all control paths return a value
+  mathlibary.vcxproj -> C:\Users\s189066\Downloads\MathLibandUnitTest-master\MathLibandUnitTest-master\mathlibary\x64\Debug\mathlibary.lib
