@@ -45,10 +45,10 @@ vec4 & vec4::operator-=(const vec4 & rhs)
 
 bool vec4::operator==(const vec4 & rhs) const
 {
-	if ((x >= (rhs.x - FLT_EPSILON) and x <= (rhs.x + FLT_EPSILON)) and
-		(y >= (rhs.y - FLT_EPSILON) and y <= (rhs.y + FLT_EPSILON)) and
-		(z >= (rhs.z - FLT_EPSILON) and z <= (rhs.z + FLT_EPSILON)) and
-		(w >= (rhs.w - FLT_EPSILON) and w <= (rhs.w + FLT_EPSILON))) {
+	if ((x >= (rhs.x - FLT_EPSILON *100) and x <= (rhs.x + FLT_EPSILON * 100)) and
+		(y >= (rhs.y - FLT_EPSILON * 100) and y <= (rhs.y + FLT_EPSILON * 100)) and
+		(z >= (rhs.z - FLT_EPSILON * 100) and z <= (rhs.z + FLT_EPSILON * 100)) and
+		(w >= (rhs.w - FLT_EPSILON * 100) and w <= (rhs.w + FLT_EPSILON * 100))) {
 		return true;
 	}
 	return false;
@@ -56,10 +56,10 @@ bool vec4::operator==(const vec4 & rhs) const
 
 bool vec4::operator!=(const vec4 & rhs) const
 {
-	if ((x >= (rhs.x - FLT_EPSILON) and x <= (rhs.x + FLT_EPSILON)) and
-		(y >= (rhs.y - FLT_EPSILON) and y <= (rhs.y + FLT_EPSILON)) and
-		(z >= (rhs.z - FLT_EPSILON) and z <= (rhs.z + FLT_EPSILON)) and
-		(w >= (rhs.w - FLT_EPSILON) and w <= (rhs.w + FLT_EPSILON))) {
+	if ((x >= (rhs.x - FLT_EPSILON * 100) and x <= (rhs.x + FLT_EPSILON * 100)) and
+		(y >= (rhs.y - FLT_EPSILON * 100) and y <= (rhs.y + FLT_EPSILON * 100)) and
+		(z >= (rhs.z - FLT_EPSILON * 100) and z <= (rhs.z + FLT_EPSILON * 100)) and
+		(w >= (rhs.w - FLT_EPSILON * 100) and w <= (rhs.w + FLT_EPSILON * 100))) {
 		return false;
 	}
 	return true;
@@ -73,6 +73,16 @@ vec4 vec4::operator-() const
 	neg4.z = -z;
 	neg4.w = -w;
 	return neg4;
+}
+
+vec4::operator float*()
+{
+	return &x;
+}
+
+vec4::operator const float*() const
+{
+	return &x;
 }
 
 float vec4::magnitude() const
@@ -102,9 +112,8 @@ vec4 & vec4::normalize()
 
 }
 
-vec4 vec4::getNormalized() const
+vec4 vec4::getNormalised() const
 {
-
 	vec4 n;
 	n.x = x;
 	n.y = y;
@@ -120,9 +129,7 @@ vec4 vec4::getNormalized() const
 	n.w /= magnitude();
 
 	return n;
-
 }
-
 vec4 & vec4::scale(const vec4 & rhs)
 {
 	x *= rhs.x;
@@ -145,6 +152,11 @@ vec4 vec4::operator*(const float rhs) const
 	v4.z = z * rhs;
 	v4.w = w * rhs;
 	return v4;
+}
+
+vec4 vec4::operator/(const float rhs) const
+{
+	return vec4();
 }
 
 vec4 & vec4::operator*=(const float rhs)

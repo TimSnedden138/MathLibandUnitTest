@@ -121,29 +121,9 @@ bool assert(const char * testName, float expected, float actual, float tolerance
 	}
 }
 
-bool assert(const char * testName, vec2 expected, vec2 actual, float tolerance)
+bool assert(const char * testName, mat3 expected, mat3 actual)
 {
-	if ((abs)(expected.x - actual.x) <= tolerance && (abs)(expected.y - actual.y) <= tolerance) {
-		std::cout << "[PASS BOI] " << testName << std::endl;
-		return true;
-	}
-	std::cout << "[FAIL BOI] " << testName << std::endl;
-	return false;
-}
-
-bool assert(const char * testName, vec3 expected, vec3 actual, float tolerance)
-{
-	if ((abs)(expected.x - actual.x) <= tolerance && (abs)(expected.y - actual.y) <= tolerance && (abs)(expected.z - actual.z) <= tolerance) {
-		std::cout << "[PASS BOI] " << testName << std::endl;
-		return true;
-	}
-	std::cout << "[FAIL BOI] " << testName << std::endl;
-	return false;
-}
-
-bool assert(const char * testName, vec4 expected, vec4 actual, float tolerance)
-{
-	if ((abs)(expected.x - actual.x) <= tolerance && (abs)(expected.y - actual.y) <= tolerance && (abs)(expected.z - actual.z) <= tolerance && (abs)(expected.w - actual.w) <= tolerance) {
+	if (expected == actual) {
 		std::cout << "[PASS BOI] " << testName << std::endl;
 		return true;
 	}
@@ -175,7 +155,7 @@ float randDecimal(float min, float max)
 	float r = max - min + 1;
 	float m = fmod(seed,r);
 	if (m > max) {
-		return max;
+		return max;							
 	}
 	if (m < min) {
 		return min;

@@ -2,6 +2,7 @@
 #include"vec2.h"
 #include"vec3.h"
 #include"vec4.h"
+#include"Matrices.h"
 #include<string>
 #include<iostream>
 //Returns a + b
@@ -31,12 +32,19 @@ float moveTowards(float current, float target, float maxDelta);
 //Assert True
 bool assert(const char * testName, bool expression);
 //Assert Equal
+
 bool assert(const char * testName, int expected, int actual);
+template <typename T>
+bool assert(const char * testName, T expected, T actual) {
+	if (expected == actual) {
+		std::cout << "[PASS BOI] " << testName << std::endl;
+		return true;
+	}
+	std::cout << "[FAIL BOI] " << testName << std::endl;
+	return false;
+}
 //Assert Near Equal
 bool assert(const char * testName, float expected, float actual, float tolerance);
-bool assert(const char * testName, vec2 expected, vec2 actual, float tolerance);
-bool assert(const char * testName, vec3 expected, vec3 actual, float tolerance);
-bool assert(const char * testName, vec4 expected, vec4 actual, float tolerance);
 // returns a random value between min and max
 int rand(int min, int max);
 // returns a random value between min and max

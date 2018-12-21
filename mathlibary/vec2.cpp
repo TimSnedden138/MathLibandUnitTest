@@ -41,8 +41,8 @@ vec2 & vec2::operator-=(const vec2 & rhs)
 
 bool vec2::operator==(const vec2 & rhs) const
 {
-	if ((x >= (rhs.x - FLT_EPSILON * 10) and x <= (rhs.x + FLT_EPSILON * 10)) and
-		(y >= (rhs.y - FLT_EPSILON * 10) and y <= (rhs.y + FLT_EPSILON * 10))) {
+	if ((x >= (rhs.x - FLT_EPSILON * 100) and x <= (rhs.x + FLT_EPSILON * 100)) and
+		(y >= (rhs.y - FLT_EPSILON * 100) and y <= (rhs.y + FLT_EPSILON * 100))) {
 		return true;
 	}
 	return false;
@@ -63,6 +63,16 @@ vec2 vec2::operator-() const
 	neg2.x = -x;
 	neg2.y = -y;
 	return neg2;
+}
+
+vec2::operator float*()
+{
+	return &x;
+}
+
+vec2::operator const float*() const
+{
+	return &x;
 }
 
 float vec2::magnitude() const
@@ -116,6 +126,13 @@ vec2 vec2::operator*(const float rhs) const
 	v2.x = x * rhs;
 	v2.y = y * rhs;
 	return v2;
+}
+
+vec2 vec2::operator/(const float rhs) const
+{
+	x / rhs;
+	y / rhs;
+	return *this;
 }
 
 vec2 & vec2::operator*=(const float rhs)

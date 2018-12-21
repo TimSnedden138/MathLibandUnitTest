@@ -53,9 +53,13 @@ vec3 & vec3::operator-=(const vec3 & rhs)
 
 bool vec3::operator==(const vec3 & rhs) const
 {
-	if ((x >= (rhs.x - FLT_EPSILON) and x <= (rhs.x + FLT_EPSILON)) and
-		(y >= (rhs.y - FLT_EPSILON) and y <= (rhs.y + FLT_EPSILON)) and 
-		(z >= (rhs.y - FLT_EPSILON) and z <= (rhs.z + FLT_EPSILON))) {
+	
+	vec3 temp;
+	temp.x = x - rhs.x;
+	temp.y = y - rhs.y;
+	temp.z = z - rhs.z;
+
+	if (abs(temp.x) < FLT_EPSILON * 100 && abs(temp.y) < FLT_EPSILON * 100 && abs(temp.z) < FLT_EPSILON * 100) {
 		return true;
 	}
 	return false;
@@ -63,9 +67,12 @@ bool vec3::operator==(const vec3 & rhs) const
 
 bool vec3::operator!=(const vec3 & rhs) const
 {
-	if ((x >= (rhs.x - FLT_EPSILON) and x <= (rhs.x + FLT_EPSILON)) and
-		(y >= (rhs.y - FLT_EPSILON) and y <= (rhs.y + FLT_EPSILON)) and
-		(z >= (rhs.y - FLT_EPSILON) and z <= (rhs.z + FLT_EPSILON))) {
+	vec3 temp;
+	temp.x = x - rhs.x;
+	temp.y = y - rhs.y;
+	temp.z = z - rhs.z;
+
+	if (abs(temp.x) < FLT_EPSILON * 100 && abs(temp.y) < FLT_EPSILON * 100 && abs(temp.z) < FLT_EPSILON * 100) {
 		return false;
 	}
 	return true;
@@ -78,6 +85,16 @@ vec3 vec3::operator-() const
 	neg3.y = -y;
 	neg3.z = -z;
 	return neg3;
+}
+
+vec3::operator float*()
+{
+	return &x;
+}
+
+vec3::operator const float*() const
+{
+	return &x;
 }
 
 float vec3::magnitude() const
@@ -110,8 +127,7 @@ vec3 & vec3::normalize()
 	return *this;
 }
 
-
-vec3 vec3::getNormalized() const
+vec3 vec3::getNormalised() const
 {
 
 	vec3 n;
@@ -127,9 +143,7 @@ vec3 vec3::getNormalized() const
 	n.z /= magnitude();
 
 	return n;
-
 }
-
 vec3 & vec3::scale(const vec3 & rhs)
 {
 	x *= rhs.x;
@@ -151,6 +165,15 @@ vec3 vec3::operator*(const float rhs) const
 	v3.y = y * rhs;
 	v3.z = z * rhs;
 	return v3;
+}
+
+vec3 vec3::operator/(const float rhs) const
+{
+
+	x / rhs;
+	y / rhs;
+	z / rhs;
+	return *this;
 }
 
 vec3 & vec3::operator*=(const float rhs)
