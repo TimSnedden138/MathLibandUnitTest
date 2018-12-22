@@ -74,8 +74,8 @@ int main()
 	assert("vec4 dot", dot4, -10468.9375f);
 
 	// vector cross product
-	v3a = vec3(5, 43, 4);
-	v3b = vec3(5, 43, 45);
+	v3a = vec3(13.5f, -48.23f, 862);
+	v3b = vec3(5, 3.99f, -12);
 	v3c = v3a.cross(v3b);
 	v4a = vec4(13.5f, -48.23f, 862, 0);
 	v4b = vec4(5, 3.99f, -12, 1);

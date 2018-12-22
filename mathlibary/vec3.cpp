@@ -115,7 +115,7 @@ float vec3::dot(const vec3 & rhs) const
 
 vec3 vec3::cross(const vec3 & rhs) const
 {
-	return {y * rhs.z - z * rhs.y, z * rhs.x - x * rhs.z, x * rhs.y - y * rhs.x };
+	return { y * rhs.z - z * rhs.y, z * rhs.x - x * rhs.z, x * rhs.y - y * rhs.x};
 }
 
 vec3 & vec3::normalize()

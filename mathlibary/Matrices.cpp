@@ -90,13 +90,13 @@ mat3 mat3::operator*(const mat3 & rhs) const
 	mat3 tA;
 	mat3 tB = rhs.getTranspose();
 	tA.m[0] = xAxis.dot(tB.xAxis);
-	tA.m[1] = xAxis.dot(tB.xAxis);
-	tA.m[2] = xAxis.dot(tB.xAxis);
-	tA.m[3] = xAxis.dot(tB.yAxis);
+	tA.m[1] = xAxis.dot(tB.yAxis);
+	tA.m[2] = xAxis.dot(tB.zAxis);
+	tA.m[3] = xAxis.dot(tB.xAxis);
 	tA.m[4] = xAxis.dot(tB.yAxis);
-	tA.m[5] = xAxis.dot(tB.yAxis);
-	tA.m[6] = xAxis.dot(tB.zAxis);
-	tA.m[7] = xAxis.dot(tB.zAxis);
+	tA.m[5] = xAxis.dot(tB.zAxis);
+	tA.m[6] = xAxis.dot(tB.xAxis);
+	tA.m[7] = xAxis.dot(tB.yAxis);
 	tA.m[8] = xAxis.dot(tB.zAxis);
 	return tA;
 }
@@ -134,7 +134,6 @@ bool mat3::operator!=(const mat3 & rhs) const
 mat3 mat3::identity()
 {
 	mat3 r;
-	mat3 e;
 	for (int i = 0; i < 9; i++) {
 		r.m[i] = 0;
 		if (i == 0 || i == 5 || i == 9) {
@@ -144,9 +143,8 @@ mat3 mat3::identity()
 		else {
 			r.m[i] = 0;
 		}
-	}
-	e *= r;
-	return e;
+	};
+	return r;
 }
 
 void mat3::set(float mm1, float mm2, float mm3,	float mm4, float mm5, float mm6,float mm7, float mm8, float mm9)
@@ -171,4 +169,47 @@ void mat3::set(float * ptr)
 
 		}
 	}
+}
+
+mat3 mat3::translation(float x, float y)
+{
+	mat3 r;
+	r = r.identity();
+	r.zAxis.x = x;
+	r.zAxis.y = y;
+
+	return r;
+}
+
+mat3 mat3::translation(const vec2 & vec)
+{
+	mat3 r;
+	r = r.identity();
+	r.translation(vec.x, vec.y);
+	return r;
+}
+
+mat3 mat3::rotation(float rot)
+{
+	return mat3();
+}
+
+mat3 mat3::scale(float xScale, float yScale)
+{
+	mat3 r;
+	for (int i = 0; i < 3; i++) {
+		r.axis[i].x = xScale;
+		r.axis[i].y = yScale;
+		r.axis[i].z = 0;
+	}
+}
+
+vec3 mat3::operator*(const vec3 & rhs) const
+{
+	return vec3();
+}
+
+vec2 mat3::operator*(const vec2 & rhs) const
+{
+	return vec2();
 }

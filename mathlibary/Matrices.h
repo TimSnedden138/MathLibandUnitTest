@@ -1,5 +1,6 @@
 #pragma once
 #include"vec3.h"
+#include"vec2.h"
 struct mat3
 {
 	union
@@ -59,5 +60,19 @@ struct mat3
 
     // updates the matrix elements with the given values from the given array
     void set(float *ptr);
+
+	// returns a translation matrix with the given changes for each axis
+	static mat3 translation(float x, float y);
+	// returns a translation matrix with the given changes for each axis
+	static mat3 translation(const vec2 &vec);
+	// returns a rotation matrix with the given rotation
+	static mat3 rotation(float rot);
+	// returns a translation matrix with the given changes for each axis
+	static mat3 scale(float xScale, float yScale);
+
+	// transforms a 4D vector by performing 4x4 x 4x1 matrix multiplication
+	vec3 operator*(const vec3 &rhs) const;
+	// convenience function for transforming a 2D vector
+	vec2 operator*(const vec2 &rhs) const;
 
 };
